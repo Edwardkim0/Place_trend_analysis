@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for googleplace_crawling project
+# Scrapy settings for placescrapper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'googleplace_crawling'
+BOT_NAME = 'placescrapper'
 
-SPIDER_MODULES = ['googleplace_crawling.spiders']
-NEWSPIDER_MODULE = 'googleplace_crawling.spiders'
+SPIDER_MODULES = ['placescrapper.spiders']
+NEWSPIDER_MODULE = 'placescrapper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'googleplace_crawling (+http://www.yourdomain.com)'
+#USER_AGENT = 'placescrapper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'googleplace_crawling.middlewares.GoogleplaceCrawlingSpiderMiddleware': 543,
+#    'placescrapper.middlewares.PlacescrapperSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'googleplace_crawling.middlewares.GoogleplaceCrawlingDownloaderMiddleware': 543,
+#    'placescrapper.middlewares.PlacescrapperDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'googleplace_crawling.pipelines.GoogleplaceCrawlingPipeline': 300,
+#    'placescrapper.pipelines.PlacescrapperPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -88,3 +88,15 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+DOWNLOADER_MIDDLEWARES = {
+    'placescrapper.middlewares.PlacescrapperSpiderMiddleware': 100
+}
+
+# DOWNLOADER_MIDDLEWARES = {
+#       'scrapy_splash.SplashCookiesMiddleware': 723,
+#       'scrapy_splash.SplashMiddleware': 725,
+#       'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+# }
+# SPLASH_URL = 'http://localhost:8050'
+# DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+# HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
